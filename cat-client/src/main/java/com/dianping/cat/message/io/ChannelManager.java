@@ -210,8 +210,7 @@ public class ChannelManager implements Task {
 
 			for (int i = 0; i < len; i++) {
 				InetSocketAddress address = addresses.get(i);
-				m_logger.info("ChannelManager - initChannel:  address[" + String.valueOf(i) +
-						"]:" + addresses.get(i).getHostString() + " " + addresses.get(i).getHostName());
+				m_logger.info("ChannelManager - initChannel:  address[" + address.toString() + "]");
 				String hostAddress = address.getAddress().getHostAddress();
 				ChannelHolder holder = null;
 
