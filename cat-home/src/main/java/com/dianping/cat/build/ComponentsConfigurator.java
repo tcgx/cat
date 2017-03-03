@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.unidal.dal.jdbc.configuration.AbstractJdbcResourceConfigurator;
+import org.unidal.dal.jdbc.datasource.DataSourceProvider;
+import org.unidal.dal.jdbc.datasource.DefaultDataSourceProvider;
 import org.unidal.dal.jdbc.mapping.TableProvider;
 import org.unidal.initialization.DefaultModuleManager;
 import org.unidal.initialization.Module;
@@ -166,7 +168,7 @@ public class ComponentsConfigurator extends AbstractJdbcResourceConfigurator {
 		all.add(C(TableProvider.class, "web-api-data", WebApiTableProvider.class));
 
 		// database
-		all.add(defineJdbcDataSourceConfigurationManagerComponent(Cat.getCatHome() + "/datasources.xml"));
+		all.add(defineJdbcDataSourceConfigurationManagerComponentSpecial("datasources.xml"));
 		all.addAll(new CatDatabaseConfigurator().defineComponents());
 		all.addAll(new AppDatabaseConfigurator().defineComponents());
 
@@ -234,5 +236,12 @@ public class ComponentsConfigurator extends AbstractJdbcResourceConfigurator {
 		all.add(C(AppConnectionService.class).req(AppConnectionDataDao.class, AppConfigManager.class));
 
 		return all;
+	}
+	
+	protected Component defineJdbcDataSourceConfigurationManagerComponentSpecial(String datasourceFileName) {
+		return C(DataSourceProvider.class, DefaultDataSourceProvider.class)
+				.config(E("baseDirRef").value("CAT_HOME"))
+				.config(E("defaultBaseDir").value("/data/appdatas/cat"))
+	            .config(E("datasourceFile").value(datasourceFileName));
 	}
 }
