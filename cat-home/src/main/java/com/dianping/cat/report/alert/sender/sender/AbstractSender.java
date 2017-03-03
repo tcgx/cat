@@ -116,6 +116,51 @@ public abstract class AbstractSender implements Sender, LogEnabled {
 		}
 	}
 
+	public boolean httpPostWithJson(String successCode,  String urlPrefix, String jsonString) {
+		URL url = null;
+		InputStream in = null;
+		OutputStreamWriter writer = null;
+		URLConnection conn = null;
+
+		try {
+			url = new URL(urlPrefix);
+			conn = url.openConnection();
+
+			conn.setConnectTimeout(2000);
+			conn.setReadTimeout(3000);
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			conn.setRequestProperty("content-type", "application/json;charset=UTF-8");
+			writer = new OutputStreamWriter(conn.getOutputStream());
+
+			writer.write(jsonString);
+			writer.flush();
+
+			in = conn.getInputStream();
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(Files.forIO().readFrom(in, "utf-8")).append("");
+			if (sb.toString().contains(successCode)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return false;
+		} finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+				if (writer != null) {
+					writer.close();
+				}
+			} catch (IOException e) {
+			}
+		}
+	}
+	
 	public com.dianping.cat.home.sender.entity.Sender querySender() {
 		String id = getId();
 

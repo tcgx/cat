@@ -38,7 +38,7 @@ public class SigninService implements ISigninService<SigninContext, Credential, 
 		Token token = m_tokenManager.getToken(ctx, Token.TOKEN);
 
 		if (token != null) {
-			Session session = m_sessionManager.validate(token);
+			Session session = m_sessionManager.validate(token,ctx.getSigninModuleName());
 
 			return session;
 		} else {

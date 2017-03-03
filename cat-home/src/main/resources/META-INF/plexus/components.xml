@@ -2946,6 +2946,11 @@
 			<implementation>com.dianping.cat.report.alert.sender.spliter.WeixinSpliter</implementation>
 		</component>
 		<component>
+			<role>com.dianping.cat.report.alert.sender.spliter.Spliter</role>
+			<role-hint>slack</role-hint>
+			<implementation>com.dianping.cat.report.alert.sender.spliter.SlackSpliter</implementation>
+		</component>
+		<component>
 			<role>com.dianping.cat.report.alert.sender.spliter.SpliterManager</role>
 			<implementation>com.dianping.cat.report.alert.sender.spliter.SpliterManager</implementation>
 		</component>
@@ -2973,6 +2978,16 @@
 			<role>com.dianping.cat.report.alert.sender.sender.Sender</role>
 			<role-hint>weixin</role-hint>
 			<implementation>com.dianping.cat.report.alert.sender.sender.WeixinSender</implementation>
+			<requirements>
+				<requirement>
+					<role>com.dianping.cat.report.alert.sender.config.SenderConfigManager</role>
+				</requirement>
+			</requirements>
+		</component>
+		<component>
+			<role>com.dianping.cat.report.alert.sender.sender.Sender</role>
+			<role-hint>slack</role-hint>
+			<implementation>com.dianping.cat.report.alert.sender.sender.SlackSender</implementation>
 			<requirements>
 				<requirement>
 					<role>com.dianping.cat.report.alert.sender.config.SenderConfigManager</role>

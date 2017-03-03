@@ -9,10 +9,18 @@ public class SigninContext implements IContext {
 	private HttpServletRequest m_request;
 
 	private HttpServletResponse m_response;
+	
+	private String signinModuleName;
 
 	public SigninContext(HttpServletRequest request, HttpServletResponse response) {
 		m_request = request;
 		m_response = response;
+	}
+	
+	public SigninContext(HttpServletRequest request, HttpServletResponse response,String signinModuleName) {
+		m_request = request;
+		m_response = response;
+		this.signinModuleName=signinModuleName;
 	}
 
 	public HttpServletRequest getRequest() {
@@ -21,5 +29,9 @@ public class SigninContext implements IContext {
 
 	public HttpServletResponse getResponse() {
 		return m_response;
+	}
+
+	public String getSigninModuleName() {
+		return signinModuleName;
 	}
 }

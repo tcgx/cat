@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.unidal.web.mvc.Action;
-import org.unidal.web.mvc.ActionContext;
 import org.unidal.web.mvc.ActionPayload;
 import org.unidal.web.mvc.Page;
 import org.unidal.webres.resource.runtime.ResourceConfigurator;
@@ -18,7 +17,9 @@ import org.unidal.webres.resource.spi.IResourceRegistry;
 import org.unidal.webres.tag.resource.ResourceTagConfigurator;
 import org.unidal.webres.taglib.basic.ResourceTagLibConfigurator;
 
-public class ReportContext<T extends ActionPayload<? extends Page, ? extends Action>> extends ActionContext<T> {
+import com.dianping.cat.system.SystemContext;
+
+public class ReportContext<T extends ActionPayload<? extends Page, ? extends Action>> extends SystemContext<T> {
 
 	@Override
 	public void initialize(HttpServletRequest request, HttpServletResponse response) {

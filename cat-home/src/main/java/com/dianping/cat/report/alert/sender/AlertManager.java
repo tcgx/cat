@@ -162,9 +162,14 @@ public class AlertManager implements Initializable {
 			List<String> receivers = m_contactorManager.queryReceivers(alert.getContactGroup(), channel, type);
 			message = new AlertMessageEntity(group, title, type, content, receivers);
 
-			if (m_senderManager.sendAlert(channel, message)) {
-				result = true;
+			try {
+				if (m_senderManager.sendAlert(channel, message)) {
+					result = true;
+				}
+			} catch (Exception e) {
+				Cat.logError(e);
 			}
+			
 		}
 
 		String dbContent = Pattern.compile("<div.*(?=</div>)</div>", Pattern.DOTALL).matcher(pair.getValue())

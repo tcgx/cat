@@ -23,6 +23,7 @@ import org.unidal.web.mvc.PageHandler;
 import org.unidal.web.mvc.annotation.InboundActionMeta;
 import org.unidal.web.mvc.annotation.OutboundActionMeta;
 import org.unidal.web.mvc.annotation.PayloadMeta;
+import org.unidal.web.mvc.annotation.PreInboundActionMeta;
 
 import com.dianping.cat.Cat;
 import com.dianping.cat.home.dal.report.Alteration;
@@ -99,6 +100,7 @@ public class Handler implements PageHandler<Context> {
 	}
 
 	@Override
+	@PreInboundActionMeta("login")
 	@PayloadMeta(Payload.class)
 	@InboundActionMeta(name = "alteration")
 	public void handleInbound(Context ctx) throws ServletException, IOException {
@@ -106,6 +108,7 @@ public class Handler implements PageHandler<Context> {
 	}
 
 	@Override
+	@PreInboundActionMeta("login")
 	@OutboundActionMeta(name = "alteration")
 	public void handleOutbound(Context ctx) throws ServletException, IOException {
 		Model model = new Model(ctx);

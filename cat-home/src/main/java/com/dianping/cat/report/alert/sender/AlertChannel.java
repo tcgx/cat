@@ -6,8 +6,10 @@ public enum AlertChannel {
 
 	SMS("sms"),
 
-	WEIXIN("weixin");
+	WEIXIN("weixin"),
 
+	SLACK("slack");
+	
 	private String m_name;
 
 	public static AlertChannel findByName(String name) {
