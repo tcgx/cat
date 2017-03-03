@@ -9,6 +9,7 @@ import org.unidal.web.mvc.PageHandler;
 import org.unidal.web.mvc.annotation.InboundActionMeta;
 import org.unidal.web.mvc.annotation.OutboundActionMeta;
 import org.unidal.web.mvc.annotation.PayloadMeta;
+import org.unidal.web.mvc.annotation.PreInboundActionMeta;
 
 import com.dianping.cat.Cat;
 import com.dianping.cat.report.ReportPage;
@@ -22,6 +23,7 @@ public class Handler implements PageHandler<Context> {
 	private TableCapacityService m_tableCapacityService;
 
 	@Override
+	@PreInboundActionMeta("login")
 	@PayloadMeta(Payload.class)
 	@InboundActionMeta(name = "overload")
 	public void handleInbound(Context ctx) throws ServletException, IOException {
@@ -29,6 +31,7 @@ public class Handler implements PageHandler<Context> {
 	}
 
 	@Override
+	@PreInboundActionMeta("login")
 	@OutboundActionMeta(name = "overload")
 	public void handleOutbound(Context ctx) throws ServletException, IOException {
 		Model model = new Model(ctx);

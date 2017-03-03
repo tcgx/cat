@@ -7,6 +7,8 @@ import org.unidal.web.mvc.annotation.ModulePagesMeta;
 @ModuleMeta(name = "r", defaultInboundAction = "home", defaultTransition = "default", defaultErrorAction = "default")
 @ModulePagesMeta({
 
+com.dianping.cat.system.page.login.Handler.class,
+	
 com.dianping.cat.report.page.home.Handler.class,
 
 com.dianping.cat.report.page.problem.Handler.class,

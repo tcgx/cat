@@ -1,5 +1,6 @@
 package com.dianping.cat.report.alert.sender.receiver;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,8 @@ public class ContactorManager extends ContainerHolder implements Initializable {
 			return contactor.querySmsContactors(group);
 		} else if (AlertChannel.WEIXIN == channel) {
 			return contactor.queryWeiXinContactors(group);
+		} else if (AlertChannel.SLACK == channel) {
+			return new ArrayList<String>();
 		} else {
 			throw new RuntimeException("unsupported channnel");
 		}

@@ -6,6 +6,8 @@ public class LoginMember {
 
 	private String m_realName;
 
+	private String m_role;
+	
 	public String getRealName() {
 		return this.m_realName;
 	}
@@ -14,11 +16,19 @@ public class LoginMember {
 		return this.m_userName;
 	}
 
+	public String getRole() {
+		return this.m_role;
+	}
+	
 	public void setRealName(String realName) {
 		this.m_realName = realName;
 	}
 
 	public void setUserName(String userName) {
 		this.m_userName = userName;
+	}
+	
+	public void setRole(String role){
+		this.m_role=role;
 	}
 }

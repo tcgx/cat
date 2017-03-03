@@ -5,6 +5,8 @@ import org.unidal.web.mvc.annotation.ModuleMeta;
 
 public enum ReportPage implements Page {
 
+	LOGIN("login", "login", "Login", "Login", false),
+	
    HOME("home", "home", "Home", "Home Page", true),
 
    PROBLEM("problem", "p", "Problem", "Problem Discovered", true),

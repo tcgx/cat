@@ -11,12 +11,12 @@
 
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="../assets/css/ace-fonts.css" />
-		<link rel="stylesheet" href="../assets/css/ace.min.css" />
-		<link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="../assets/css/ace.onpage-help.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace-fonts.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ace.onpage-help.css" />
 	</head>
 
 	<body class="login-layout">
@@ -181,11 +181,11 @@
 
 		<!--[if !IE]> -->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='../assets/js/jquery.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='${pageContext.request.contextPath}/assets/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
 
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='${pageContext.request.contextPath}/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 
 		<!-- inline scripts related to this page -->

@@ -17,6 +17,7 @@ import org.unidal.web.mvc.annotation.InboundActionMeta;
 import org.unidal.web.mvc.annotation.OutboundActionMeta;
 import org.unidal.web.mvc.annotation.PayloadMeta;
 
+import com.dianping.cat.report.ReportContext;
 import com.dianping.cat.system.SystemContext;
 import com.dianping.cat.system.SystemPage;
 import com.dianping.cat.system.page.login.service.Credential;
@@ -33,7 +34,17 @@ public class Handler implements PageHandler<Context> {
 	private SigninService m_signinService;
 
 	private SigninContext createSigninContext(Context ctx) {
-		return new SigninContext(ctx.getHttpServletRequest(), ctx.getHttpServletResponse());
+		
+		ActionContext<?> parent = ctx.getParent();
+		String signinModuleName=null;
+
+		if (parent instanceof ReportContext) {
+			signinModuleName="reportModule";
+		}else if (parent instanceof SystemContext) {
+			signinModuleName="systemModule";
+		}
+		
+		return new SigninContext(ctx.getHttpServletRequest(), ctx.getHttpServletResponse(),signinModuleName);
 	}
 
 	@Override
