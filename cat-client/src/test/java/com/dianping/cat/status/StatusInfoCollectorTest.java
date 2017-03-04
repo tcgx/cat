@@ -4,6 +4,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import com.dianping.cat.configuration.InetsEx;
 import com.dianping.cat.status.model.entity.StatusInfo;
 
 public class StatusInfoCollectorTest {
@@ -21,5 +22,10 @@ public class StatusInfoCollectorTest {
 		Assert.assertEquals(true, status.getOs() != null);
 		Assert.assertEquals(true, status.getRuntime() != null);
 		Assert.assertEquals(true, status.getThread() != null);
+	}
+	
+	@Test
+	public void IpTest() {
+		System.out.println(InetsEx.IP4.getLocalHostAddress());
 	}
 }
