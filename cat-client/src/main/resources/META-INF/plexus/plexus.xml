@@ -7,8 +7,8 @@
 				<dateFormat>MM-dd HH:mm:ss.SSS</dateFormat>
 				<showClass>true</showClass>
 				<logFilePattern>cat_{0,date,yyyyMMdd}.log</logFilePattern>
-				<baseDirRef>CAT_HOME</baseDirRef>
-				<defaultBaseDir>/data/applogs/cat</defaultBaseDir>
+				<baseDirRef>CAT_LOG_HOME</baseDirRef>
+				<defaultBaseDir>/opt/lanxin/logs/cat</defaultBaseDir>
 			</configuration>
 		</component>
 	</components>
