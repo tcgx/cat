@@ -11,8 +11,22 @@
 
     <groupId>net.dubboclub</groupId>
     <artifactId>cat-monitor</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
 
+	
+		<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>http://repos.comisys.net/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal snapshots</name>
+			<url>http://repos.comisys.net/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
     <dependencies>
         <dependency>
             <groupId>com.dianping.cat</groupId>
