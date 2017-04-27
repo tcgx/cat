@@ -28,6 +28,6 @@ public class DubboCat {
      * @return
      */
     public static boolean isEnable(){
-        return isEnable && Cat.getManager().isCatEnabled();
+        return isEnable && Cat.getManager()!=null && Cat.getManager().isCatEnabled();
     }
 }
