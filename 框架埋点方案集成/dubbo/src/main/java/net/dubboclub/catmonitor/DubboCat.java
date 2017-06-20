@@ -7,7 +7,7 @@ import com.dianping.cat.Cat;
  */
 public class DubboCat {
     
-    private static boolean isEnable=true;
+    private static boolean isEnable=false;
 
     /**
      * 禁用dubbo cat
